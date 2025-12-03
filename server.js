@@ -71,11 +71,16 @@ const server = http.createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error("CORS Not Allowed"), false);
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   },
 });
+
 
 // -------------------------
 // 📌 API ROUTES
