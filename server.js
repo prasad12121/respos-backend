@@ -23,7 +23,7 @@ const app = express();
 // Allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://https://res-pos-one.vercel.app"
+  "https://res-pos-one.vercel.app"
 ];
 
 // -------------------------
