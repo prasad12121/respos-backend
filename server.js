@@ -27,12 +27,11 @@ const allowedOrigins = [
 ];
 
 // CORS
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+}));
 
 // Handle OPTIONS
 app.options("*", (req, res) => {
